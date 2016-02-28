@@ -1,10 +1,12 @@
 # -*- encoding: utf-8 -*-
-from __future__ import print_function, unicode_literals, division
+from __future__ import print_function, unicode_literals, division, absolute_import
 
 from enocean.protocol.packet import Packet
 from enocean.protocol.constants import PACKET, PARSE_RESULT
+from enocean.decorators import timing
 
 
+@timing(1000)
 def test_packet_examples():
     ''' Tests examples found at EnOceanSerialProtocol3.pdf / 74 '''
     telegram_examples = {
@@ -104,16 +106,17 @@ def test_packet_examples():
     }
 
     for packet, values in telegram_examples.items():
-        status, remainder, p = Packet.parse_msg(values['msg'])
+        status, remainder, pack = Packet.parse_msg(values['msg'])
         assert status == PARSE_RESULT.OK
-        assert p.type != 0x00
-        assert p.type == packet
-        assert len(p.data) == values['data_len']
-        assert len(p.optional) == values['opt_len']
-        assert p.status == 0x00
-        assert p.repeater_count == 0
+        assert pack.packet_type != 0x00
+        assert pack.packet_type == packet
+        assert len(pack.data) == values['data_len']
+        assert len(pack.optional) == values['opt_len']
+        assert pack.status == 0x00
+        assert pack.repeater_count == 0
 
 
+@timing(1000)
 def test_packet_fails():
     '''
     Tests designed to fail.
@@ -153,5 +156,5 @@ def test_packet_fails():
     )
 
     for msg in fail_examples:
-        status, remainder, p = Packet.parse_msg(msg)
+        status, remainder, packet = Packet.parse_msg(msg)
         assert status in [PARSE_RESULT.INCOMPLETE, PARSE_RESULT.CRC_MISMATCH]
