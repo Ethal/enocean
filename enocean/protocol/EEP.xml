@@ -29,6 +29,19 @@
         </data>
       </profile>
     </profiles>
+    <profiles func="0x05" description="Detectors">
+      <profile type="0x01" description="Liquid Leakage Sensor (mechanic harvester)">
+        <data>
+          <enum description="Water Sensor" shortcut="WAS" offset="0" size="8">
+            <rangeitem description="not specified" start="0" end="16" />
+            <item description="Water detected" value="17" />
+            <rangeitem description="not specified" start="18" end="255" />
+          </enum>
+          <status description="T21" shortcut="T21" offset="2" size="1" />
+          <status description="NU" shortcut="NU" offset="3" size="1" />
+        </data>
+      </profile>
+    </profiles>
   </telegram>
   <telegram rorg="0xD5" type="1BS" description="1BS Telegram">
     <profiles func="0x00" description="Contacts and Switches">
@@ -44,9 +57,65 @@
   </telegram>
   <telegram rorg="0xA5" type="4BS" description="4BS Telegram">
     <profiles func="0x02" description="Temperature Sensors">
+      <profile type="0x01" description="Temperature Sensor Range -40°C to 0°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-40.000000</min>
+              <max>0.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x02" description="Temperature Sensor Range -30°C to +10°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-30.000000</min>
+              <max>10.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x03" description="Temperature Sensor Range -20°C to +20°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-20.000000</min>
+              <max>20.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x04" description="Temperature Sensor Range -10°C to +30°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-10.000000</min>
+              <max>30.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
       <profile type="0x05" description="Temperature Sensor Range 0°C to +40°C">
         <data>
-          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="C">
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
             <range>
               <min>255</min>
               <max>0</max>
@@ -54,6 +123,286 @@
             <scale>
               <min>0.000000</min>
               <max>40.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x06" description="Temperature Sensor Range +10°C to +50°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>10.000000</min>
+              <max>50.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x07" description="Temperature Sensor Range +20°C to +60°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>20.000000</min>
+              <max>60.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x08" description="Temperature Sensor Range +30°C to +70°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>30.000000</min>
+              <max>70.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x09" description="Temperature Sensor Range +40°C to +80°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>40.000000</min>
+              <max>80.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x0A" description="Temperature Sensor Range +50°C to +90°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>50.000000</min>
+              <max>90.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x0B" description="Temperature Sensor Range +60°C to +100°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>60.000000</min>
+              <max>100.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x10" description="Temperature Sensor Range -60°C to +20°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-60.000000</min>
+              <max>20.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x11" description="Temperature Sensor Range -50°C to +30°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-50.000000</min>
+              <max>30.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x12" description="Temperature Sensor Range -40°C to +40°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-40.000000</min>
+              <max>40.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x13" description="Temperature Sensor Range -30°C to +50°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-30.000000</min>
+              <max>50.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x14" description="Temperature Sensor Range -20°C to +60°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-20.000000</min>
+              <max>60.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x15" description="Temperature Sensor Range -10°C to +70°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-10.000000</min>
+              <max>70.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x16" description="Temperature Sensor Range 0°C to +80°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>0.000000</min>
+              <max>80.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x17" description="Temperature Sensor Range +10°C to +90°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>10.000000</min>
+              <max>90.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x18" description="Temperature Sensor Range +20°C to +100°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>20.000000</min>
+              <max>100.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x19" description="Temperature Sensor Range +30°C to +110°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>30.000000</min>
+              <max>110.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x1A" description="Temperature Sensor Range +40°C to +120°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>40.000000</min>
+              <max>120.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x1B" description="Temperature Sensor Range +50°C to +130°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="16" size="8" unit="°C">
+            <range>
+              <min>255</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>50.000000</min>
+              <max>130.000000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x20" description="10 Bit Temperature Sensor Range -10°C to +41.2°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="14" size="10" unit="°C">
+            <range>
+              <min>1023</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-10.000000</min>
+              <max>41.200000</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
+      <profile type="0x30" description="10 Bit Temperature Sensor Range -40°C to +62.3°C">
+        <data>
+          <value description="Temperature (linear)" shortcut="TMP" offset="14" size="10" unit="°C">
+            <range>
+              <min>1023</min>
+              <max>0</max>
+            </range>
+            <scale>
+              <min>-40.000000</min>
+              <max>62.300000</max>
             </scale>
           </value>
         </data>
@@ -112,7 +461,7 @@
               <max>100</max>
             </scale>
           </value>
-          <value shortcut="TMP" description="Temperature (linear)" offset="16" size="8" unit="C">
+          <value shortcut="TMP" description="Temperature (linear)" offset="16" size="8" unit="°C">
             <range>
               <min>255</min>
               <max>0</max>
@@ -230,7 +579,7 @@
             <item description="false" value="0" />
             <item description="true" value="1" />
           </enum>
-          <value shortcut="TMP" description="Temperature (linear)" offset="16" size="8" unit="C">
+          <value shortcut="TMP" description="Temperature (linear)" offset="16" size="8" unit="°C">
             <range>
               <min>0</min>
               <max>255</max>
@@ -252,7 +601,7 @@
               <max>100</max>
             </scale>
           </value>
-          <value shortcut="TMP" description="Temperature from RCU" offset="8" size="8" unit="C">
+          <value shortcut="TMP" description="Temperature from RCU" offset="8" size="8" unit="°C">
             <range>
               <min>0</min>
               <max>255</max>
@@ -297,48 +646,61 @@
         </data>
       </profile>
     </profiles>
+    <profiles func="0x12" description="Atomated Meter Reading (AMR)">
+      <profile type="0x01" description="Electricity">
+        <data>
+          <value shortcut="MR" description="current value in W or cumulative value in kWh" offset="0" size="24" unit="">
+            <range>
+              <min>0</min>
+              <max>16777215</max>
+            </range>
+            <scale>
+              <min>0.000000</min>
+              <max>16777215</max>
+            </scale>
+          </value>
+          <value shortcut="TI" description="Tariff info" offset="24" size="4" unit="">
+            <range>
+              <min>0</min>
+              <max>15</max>
+            </range>
+            <scale>
+              <min>0</min>
+              <max>15</max>
+            </scale>
+          </value>
+          <enum shortcut="DT" description="Current value or cumulative value" offset="29" size="1">
+            <item description="kWh" value="0" />
+            <item description="W" value="1" />
+          </enum>
+          <enum shortcut="DIV" description="Divisor for value" offset="30" size="2">
+            <item description="x/1" value="0" />
+            <item description="x/10" value="1" />
+            <item description="x/100" value="2" />
+            <item description="x/1000" value="3" />
+          </enum>
+        </data>
+      </profile>
+    </profiles>
   </telegram>
   <telegram rorg="0xD2" type="VLD" description="VLD Telegram">
     <profiles func="0x01" description="Electronic switches and dimmers with Energy Measurement and Local Control">
       <profile type="0x01" description="Electronic switch with Local Control">
         <command description="command indentifier" shortcut="CMD" offset="4" size="4">
           <item description="Actuator Set Output" value="1" />
-          <item description="Actuator Set Local" value="2" />
-          <item description="Actuator Status Query" value="3" />
+          <!-- <item description="Actuator Set Local" value="2" /> -->
+          <!-- <item description="Actuator Status Query" value="3" /> -->
           <item description="Actuator Status Response" value="4" />
-          <item description="Actuator Set Measurement" value="5" />
-          <item description="Actuator Measurement Query" value="6" />
-          <item description="Actuator Measurement Response" value="7" />
-          <item description="Actuator Set Pilot Wire Mode" value="8" />
-          <item description="Actuator Pilot Wire Mode Query" value="9" />
-          <item description="Actuator Pilot Wire Mode Response" value="10" />
-          <item description="Actuator Set External Interface Settings" value="11" />
-          <item description="Actuator External Interface Settings Query" value="12" />
-          <item description="Actuator External Interface Settings Response" value="13" />
+          <!-- <item description="Actuator Set Measurement" value="5" /> -->
+          <!-- <item description="Actuator Measurement Query" value="6" /> -->
+          <!-- <item description="Actuator Measurement Response" value="7" /> -->
+          <!-- <item description="Actuator Set Pilot Wire Mode" value="8" /> -->
+          <!-- <item description="Actuator Pilot Wire Mode Query" value="9" /> -->
+          <!-- <item description="Actuator Pilot Wire Mode Response" value="10" /> -->
+          <!-- <item description="Actuator Set External Interface Settings" value="11" /> -->
+          <!-- <item description="Actuator External Interface Settings Query" value="12" /> -->
+          <!-- <item description="Actuator External Interface Settings Response" value="13" /> -->
         </command>
-        <data command="1" bits="3">
-          <enum description="Command indentifier" shortcut="CMD" offset="4" size="4">
-            <rangeitem description="Command ID {value}" start="0" end="13" />
-          </enum>
-          <enum description="Dim value" shortcut="DV" offset="8" size="3">
-            <item description="Switch to new output value" value="0" />
-            <item description="Dim to new output level - dim timer 1" value="1" />
-            <item description="Dim to new output level - dim timer 2" value="2" />
-            <item description="Dim to new output level - dim timer 3" value="3" />
-            <item description="Stop dimming" value="4" />
-          </enum>
-          <enum description="I/O channel" shortcut="IO" offset="11" size="5">
-            <rangeitem description="Output channel {value} (to load)" start="0" end="29" />
-            <item description="All output channels supported by the device" value="30" />
-            <item description="Input channel (from mains supply)" value="31" />
-          </enum>
-          <enum description="Output value" shortcut="OV" offset="17" size="7">
-            <item description="Output value 0% or OFF" value="0" />
-            <rangeitem description="Output value {value}% or ON" start="1" end="100" />
-            <item description="Not used" start="101" end="126" />
-            <item description="output value not valid / not set" value="127" />
-          </enum>
-        </data>
         <data command="4" bits="3">
           <enum description="Power Failure" shortcut="PF" offset="0" size="1">
             <item description="Power Failure Detection disabled/not supported" value="0" />
@@ -373,7 +735,30 @@
           <enum description="Output value" shortcut="OV" offset="17" size="7">
             <item description="Output value 0% or OFF" value="0" />
             <rangeitem description="Output value {value}% or ON" start="1" end="100" />
-            <item description="Not used" start="101" end="126" />
+            <rangeitem description="Not used" start="101" end="126" />
+            <item description="output value not valid / not set" value="127" />
+          </enum>
+        </data>
+        <data command="1" bits="3">
+          <enum description="Command indentifier" shortcut="CMD" offset="4" size="4">
+            <rangeitem description="Command ID {value}" start="0" end="13" />
+          </enum>
+          <enum description="Dim value" shortcut="DV" offset="8" size="3">
+            <item description="Switch to new output value" value="0" />
+            <item description="Dim to new output level - dim timer 1" value="1" />
+            <item description="Dim to new output level - dim timer 2" value="2" />
+            <item description="Dim to new output level - dim timer 3" value="3" />
+            <item description="Stop dimming" value="4" />
+          </enum>
+          <enum description="I/O channel" shortcut="IO" offset="11" size="5">
+            <rangeitem description="Output channel {value} (to load)" start="0" end="29" />
+            <item description="All output channels supported by the device" value="30" />
+            <item description="Input channel (from mains supply)" value="31" />
+          </enum>
+          <enum description="Output value" shortcut="OV" offset="17" size="7">
+            <item description="Output value 0% or OFF" value="0" />
+            <rangeitem description="Output value {value}% or ON" start="1" end="100" />
+            <rangeitem description="Not used" start="101" end="126" />
             <item description="output value not valid / not set" value="127" />
           </enum>
         </data>
